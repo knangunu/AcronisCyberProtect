@@ -1,4 +1,4 @@
-name: Win32AppMetadataListingsUpdate
+name: PublishMetadataUpdatesToStore
 on:   
       workflow_dispatch:
 jobs:
