@@ -1,1 +1,24 @@
-
+{
+	"Listings": {
+		"Language": "en",
+		"Description": "Updates from Github action",
+		"WhatsNew": "Updates from Github action",
+		"ProductFeatures": [
+			"GitHub action",
+			"SafeWeb extension", 
+			"Threat detection"
+		],
+		"ShortDescription": "Github action test",
+		"SearchTerms": [
+			"Acronis",
+			"Cyber protect"
+		],
+		"AdditionalLicenseTerms": "Github action test",
+		"Copyright": "Github action test",
+		"DevelopedBy": "Github action test",
+		"Requirements": [
+		],
+		"SortTitle": "",
+		"ContactInfo": "Github action test"
+	}
+}
