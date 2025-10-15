@@ -13,3 +13,4 @@ jobs:
       run: |
           $listings = Get-Content -Raw "${{ github.workspace }}/metadata/listings.json"
           msstore submission updateMetadata f16b20ce-f82e-4046-bd70-81e703ca6e30 $listings
+          msstore submission publish f16b20ce-f82e-4046-bd70-81e703ca6e30
