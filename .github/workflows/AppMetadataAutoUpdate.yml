@@ -24,7 +24,9 @@ jobs:
               --clientSecret ${{ secrets.AZURE_AD_APPLICATION_SECRET }}
 
       - name: Update metadata
-        run: msstore submission updateMetadata 28d4b502-6be7-414d-950d-680de94a32bb '${{ github.workspace }}/metadata/metadata.json' 
-      - name: Publish to Store
-        run: msstore submission publish 28d4b502-6be7-414d-950d-680de94a32bb
-              
+        run: |
+          $metadata = Get-Content -Raw "${{ github.workspace }}/metadata/metadata.json"
+          msstore submission updateMetadata <Partner center Id> $metadata 
+      - name: Publish updated metadata
+        run: |
+          msstore submission publish <productId>
