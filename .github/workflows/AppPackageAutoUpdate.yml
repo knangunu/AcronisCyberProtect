@@ -3,7 +3,7 @@ name: AppPackageAutoUpdate
 on:
   push:
     paths:
-      - 'release/package.json'
+      - 'release/packagess.json'
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       
       - name: Update package
         run: |-
-            $win32Packages = Get-Content -Raw "${{ github.workspace }}/release/package.json"
+            $win32Packages = Get-Content -Raw "${{ github.workspace }}/release/packages.json"
             msstore submission update <productId> $win32Packages
       - name: Publish Submission
         run: |-
