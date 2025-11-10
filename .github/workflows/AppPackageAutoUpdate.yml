@@ -3,7 +3,7 @@ name: AppPackageAutoUpdate
 on:
   push:
     paths:
-      - 'release/packages.json'
+      - 'release/AcronisCyberProtectV2.json'
 
 jobs:
   build:
@@ -25,9 +25,9 @@ jobs:
       
       - name: Update package
         run: |-
-            $win32Packages = Get-Content -Raw "${{ github.workspace }}/release/packages.json"
-            msstore submission update <productId> $win32Packages
+            $updatedPackage = Get-Content -Raw "${{ github.workspace }}/release/AcronisCyberProtectV2.json"
+            msstore submission update <Partner center Id> $updatedPackage
       - name: Publish Submission
         run: |-
-            msstore submission publish <productId>
+            msstore submission publish <Partner center Id>
               
