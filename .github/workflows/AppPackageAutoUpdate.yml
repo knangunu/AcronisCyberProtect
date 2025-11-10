@@ -3,7 +3,7 @@ name: AppPackageAutoUpdate
 on:
   push:
     paths:
-      - 'release/packagess.json'
+      - 'release/packages.json'
 
 jobs:
   build:
