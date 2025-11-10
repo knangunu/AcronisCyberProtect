@@ -29,4 +29,4 @@ jobs:
           msstore submission updateMetadata <Partner center Id> $metadata 
       - name: Publish updated metadata
         run: |
-          msstore submission publish <productId>
+          msstore submission publish <Partner center Id>
