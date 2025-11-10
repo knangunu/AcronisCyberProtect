@@ -1,0 +1,30 @@
+name: AppMetadataAutoUpdate
+
+on:
+  push:
+    paths:
+      - 'metadata/metadata.json'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Microsoft Store CLI
+        uses: microsoft/microsoft-store-apppublisher@v1.1
+
+      - name: Reconfigure store credentials
+        run: msstore reconfigure `
+              --tenantId ${{ secrets.AZURE_AD_TENANT_ID }} `
+              --sellerId ${{ secrets.SELLER_ID }} `
+              --clientId ${{ secrets.AZURE_AD_APPLICATION_CLIENT_ID }} `
+              --clientSecret ${{ secrets.AZURE_AD_APPLICATION_SECRET }}
+
+      - name: Update metadata
+        run: msstore submission updateMetadata 28d4b502-6be7-414d-950d-680de94a32bb '${{ github.workspace }}/metadata/metadata.json' 
+      - name: Publish to Store
+        run: msstore submission publish 28d4b502-6be7-414d-950d-680de94a32bb
+              
